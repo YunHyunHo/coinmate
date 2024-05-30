@@ -1,0 +1,249 @@
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+@font-face {
+    font-family:"S-Core Dream";
+    src:url("/assets/fonts/SCDream/SCDream4.woff2") format("woff2"),url("/assets/fonts/SCDream/SCDream4.woff") format("woff"),url("/assets/fonts/SCDream/SCDream4.otf") format("opentype");
+    font-style:normal;font-weight:400;
+}
+@font-face {
+    font-family:"S-Core Dream";
+    src:url("/assets/fonts/SCDream/SCDream5.woff2") format("woff2"),url("/assets/fonts/SCDream/SCDream5.woff") format("woff"),url("/assets/fonts/SCDream/SCDream5.otf") format("opentype");
+    font-style:normal;font-weight:500;
+}
+@font-face {
+    font-family:"S-Core Dream";
+    src:url("/assets/fonts/SCDream/SCDream6.woff2") format("woff2"),url("/assets/fonts/SCDream/SCDream6.woff") format("woff"),url("/assets/fonts/SCDream/SCDream6.otf") format("opentype");
+    font-style:normal;font-weight:600;
+}
+
+@font-face {
+    font-family:"Noto Sans KR";
+    src:url("/assets/fonts/NotoSansKR/NotoSansKR-Thin.woff2") format("woff2"),url("/assets/fonts/NotoSansKR/NotoSansKR-Thin.woff") format("woff"),url("/assets/fonts/NotoSansKR/NotoSansKR-Thin.otf") format("opentype");
+    font-style:normal;font-weight:100;
+}
+@font-face {
+    font-family:"Noto Sans KR";
+    src:url("/assets/fonts/NotoSansKR/NotoSansKR-Light.woff2") format("woff2"),url("/assets/fonts/NotoSansKR/NotoSansKR-Light.woff") format("woff"),url("../fonts/NotoSansKR/NotoSansKR-Light.otf") format("opentype");
+    font-style:normal;font-weight:300;
+}
+@font-face {
+    font-family:"Noto Sans KR";
+    src:url("/assets/fonts/NotoSansKR/NotoSansKR-Regular.woff2") format("woff2"),url("/assets/fonts/NotoSansKR/NotoSansKR-Regular.woff") format("woff"),url("/assets/fonts/NotoSansKR/NotoSansKR-Regular.otf") format("opentype");
+    font-style:normal;font-weight:400;
+}
+@font-face {
+    font-family:"Noto Sans KR";
+    src:url("/assets/fonts/NotoSansKR/NotoSansKR-Medium.woff2") format("woff2"),url("/assets/fonts/NotoSansKR/NotoSansKR-Medium.woff") format("woff"),url("/assets/fonts/NotoSansKR/NotoSansKR-Medium.otf") format("opentype");
+    font-style:normal;font-weight:500;
+}
+@font-face {
+    font-family:"Noto Sans KR";
+    src:url("/assets/fonts/NotoSansKR/NotoSansKR-Bold.woff2") format("woff2"),url("/assets/fonts/NotoSansKR/NotoSansKR-Bold.woff") format("woff"),url("/assets/fonts/NotoSansKR/NotoSansKR-Bold.otf") format("opentype");
+    font-style:normal;font-weight:700;
+}
+@font-face {
+    font-family:"Noto Sans KR";
+    src:url("/assets/fonts/NotoSansKR/NotoSansKR-Black.woff2") format("woff2"),url("/assets/fonts/NotoSansKR/NotoSansKR-Black.woff") format("woff"),url("/assets/fonts/NotoSansKR/NotoSansKR-Black.otf") format("opentype");
+    font-style:normal;font-weight:900;
+}
+
+body{
+  font-family: 'S-Core Dream';
+}
+
+.evHover{
+  &:hover{
+    opacity: .7;
+  }
+}
+// header css
+header {
+  border-bottom: 1px solid #eee;
+  position: relative;
+  background-color: #fff;
+  z-index: 10;
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  .logo{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+
+    img{
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  nav {
+    .main-menu {
+      list-style-type: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+
+      li {
+        position: relative;
+
+        .ast-menu-toggle {
+          display: none;
+          width: 100px;
+          position: absolute;
+          justify-content: end;
+
+          cursor: pointer;
+        }
+
+        a {
+          display: block;
+          text-decoration: none;
+          padding: 2.5rem 1rem;
+          color: #000;
+
+          &:hover {
+            border-radius: 5px;
+          }
+        }
+        .sub-menu {
+          display: none;
+          position: absolute;
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          top: 100%;
+          left: 0;
+          min-width: 150px;
+          background-color: #fff;
+          border-top: 1px solid #2457f6;
+          box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
+
+          li {
+            a {
+              padding: 1.5rem 1rem;
+              display: block;
+            }
+          }
+        }
+        &:hover {
+          .sub-menu {
+            display: block;
+          }
+        }
+      }
+    }
+    .menu-toggle {
+      display: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+
+@media (max-width: 1024px) {
+  header {
+    position: fixed;
+    width: 100%;
+    .logo{
+      width: 50px;
+      height: 50px;
+    }
+    nav {
+      padding: 2rem 0;
+      .main-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        &.show {
+          display: flex;
+          width: 100%;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          
+          li{
+            &:first-child{
+              border-top: 1px solid #eee;
+            }
+          }
+        }
+        li {
+          text-align-last: center;
+          border-bottom: 1px solid #eee;
+          position: relative;
+
+          .ast-menu-toggle {
+            display: inline-flex;
+          }
+
+          &:hover {
+            .sub-menu {
+              display: none;
+            }
+          }
+
+          .sub-menu {
+            position: static;
+            
+            &.show{
+              display: block;
+            }
+          }
+        }
+      }
+      .menu-toggle {
+        display: block;
+        
+      }
+    }
+  }
+}
+// // header css 
+
+
+main{
+  position: relative;
+  .coin-banner{
+    max-width: 500px;
+    max-height: 500px;
+    
+    
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  main{
+    padding-top: 6rem;
+  }
+}
+
+
+footer{
+  margin-top: 3rem;
+  padding: 3rem;
+  background-color: #eee;
+  text-align: center;
+  p{
+    margin: 0;
+  }
+}
